@@ -16,5 +16,9 @@ const ROUTES = [
     'logout' => [
         'controller' => App\Controller\UserController::class,
         'method' => 'logout',
-    ]
+    ],
+    'allRoadTrip' => [
+        'controller' => App\Controller\RoadTripController::class,
+        'method' => 'allRoadTrip'
+    ],
 ];

@@ -13,6 +13,9 @@
                 <li>
                     <a href="index.php?page=home">Accueil</a>
                 </li>
+                <li>
+                    <a href="index.php?page=allRoadTrip">Liste des Road Trip</a>
+                </li>
                 <?php if(!isset($_SESSION['user'])){ ?>
                     <li>
                         <a href="index.php?page=register">S'enregistrer</a>
