@@ -4,6 +4,7 @@
             <div class="card-body">
                 <h2 class="card-title"><?= $currentRoadTrip->getIntitule() ?></h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h3><?= $currentRoadTrip->getUser()->getEmail() ?></h3>
                 <div class="card-actions justify-end">
                     <button class="btn btn-primary">Découvrir</button>
                 </div>

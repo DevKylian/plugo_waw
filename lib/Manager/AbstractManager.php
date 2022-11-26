@@ -13,6 +13,7 @@ abstract class AbstractManager {
             . ";dbname=" . DB_INFOS['dbname'],DB_INFOS['username'],DB_INFOS['password']
         );
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        //$db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
         $db->exec('SET NAMES utf8');
         return $db;
     }
@@ -52,35 +53,33 @@ abstract class AbstractManager {
         return $stmt->fetch();
     }
 
-    protected function readMany(string $class, array $clause = null, array $orderBy = null) {
-        $query = "SELECT * FROM " . $this->classToTable($class);
-        $arrayVal = [];
-        if($clause != null){
-            $query = $query . " WHERE ";
-            foreach($clause as $key => $val){
-                if($key != array_key_last($clause)){
-                    $query = $query . $key . " = :" . $key . " AND ";
-                }else{
-                    $query = $query . $key . " = :" . $key;
-                }
-
-                $arrayVal[$key] = $val;
-            }
+    protected function readMany(string $class, array $clause = [], array $orderBy = [], int $limit = null, int $offset = null) {
+        $query = 'SELECT * FROM ' . $this->classToTable($class);
+        if (!empty($clause)) {
+          $query .= ' WHERE ';
+          foreach (array_keys($clause) as $filter) {
+            $query .= $filter . " = :" . $filter;
+            if ($filter != array_key_last($clause)) $query .= 'AND ';
+          }
+        }
+        if (!empty($orderBy)) {
+          $query .= ' ORDER BY ';
+          foreach ($orderBy as $key => $val) {
+            $query .= $key . ' ' . $val;
+            if ($key != array_key_last($orderBy)) $query .= ', ';
+          }
+        }
+        if (isset($limit)) {
+          $query .= ' LIMIT ' . $limit;
+          if (isset($offset)) {
+            $query .= ' OFFSET ' . $offset;
+          }
         }
 
-        if($orderBy != null){
-            $query = $query . " ORDER BY " . key($orderBy) . " :valueOrder";
-            $valueOrder = $orderBy[key($orderBy)];
-
-            $arrayVal['valueOrder'] = $valueOrder;
-        }
-
-        if($stmt = $this->executeQuery($query, $arrayVal)){
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
-            return $stmt->fetchAll();
-        }
-        
-    }
+        $stmt = $this->executeQuery($query, $clause);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
+        return $stmt->fetchAll();
+      }
 
     protected function create(string $class, array $fields) {
         $query = "INSERT INTO " . $this->classToTable($class) . ' (';

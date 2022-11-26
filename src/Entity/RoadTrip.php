@@ -2,11 +2,43 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
+use App\Manager\UserManager;
+
 class RoadTrip {
+
+    public function __construct() {
+        $this->userManager = new UserManager();
+    }
 
     private ?int $id;
     private ?string $intitule;
     private ?string $typeVehicule;
+    private ?int $user_id;
+
+    /**
+     * @return string|null
+     */
+    public function getUserId(): ?string
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @return \App\Entity\User
+     */
+    public function getUser(): ?User {
+        return $this->userManager->findOneBy(['id' => $this->user_id]);
+    }
+
+    /**
+     * @param $user_id
+     * @return void
+     */
+    public function setUserId($user_id): void
+    {
+        $this->user_id = $user_id;
+    }
 
     /**
      * @return int|null

@@ -25,6 +25,9 @@
                     </li>
                 <?php }else{ ?>
                     <li>
+                        <a href="index.php?page=addRoadTrip">Créer un road trip</a>
+                    </li>
+                    <li>
                         <a href="index.php?page=logout">Deconnexion</a>
                     </li>
                 <?php } ?>

@@ -14,8 +14,9 @@ class RoadTripManager extends AbstractManager {
     public function add(RoadTrip $roadTrip): \PDOStatement
     {
         return $this->create(RoadTrip::class, [
-           'intitule' => $roadTrip->getIntitule(),
-           'type_vehicule' => $roadTrip->getTypeVehicule()
+            'intitule' => $roadTrip->getIntitule(),
+            'type_vehicule' => $roadTrip->getTypeVehicule(),
+            'user_id' => $roadTrip->getUserId(),
         ]);
     }
 
@@ -34,13 +35,9 @@ class RoadTripManager extends AbstractManager {
         return $this->readMany(RoadTrip::class);
     }
 
-    /**
-     * @param array|null $clause
-     * @param array|null $orderBy
-     * @return array|false|null
-     */
-    public function findBy(array $clause = null, array $orderBy = null) {
-        return $this->readMany(RoadTrip::class, $clause, $orderBy);
+
+    public function findBy(array $clause = [], array $orderBy = [], int $limit = null, int $offset = null) {
+        return $this->readMany(RoadTrip::class, $clause, $orderBy, $limit, $offset);
     }
 
     /**
@@ -51,7 +48,8 @@ class RoadTripManager extends AbstractManager {
     {
         return $this->update(RoadTrip::class, [
             'intitule' => $roadTrip->getIntitule(),
-            'type_vehicule' => $roadTrip->getTypeVehicule()
+            'type_vehicule' => $roadTrip->getTypeVehicule(),
+            'user_id' => $roadTrip->getUserId(),
         ], $roadTrip->getId());
     }
 
@@ -61,7 +59,7 @@ class RoadTripManager extends AbstractManager {
      */
     public function remove(RoadTrip $roadTrip): \PDOStatement
     {
-        return $this->delete(RoadTrip::class, $roadTrip);
+        return $this->delete(RoadTrip::class, $roadTrip->getId());
     }
 
 }

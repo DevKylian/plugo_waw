@@ -1,9 +1,4 @@
 <div class="container w-full mt-5" align="center">
-    <?php if(!empty($_SESSION['FLASH'])) { ?>
-        <?php foreach($_SESSION['FLASH'] as $flashMessage) { ?>
-            <div class="alert-<?= $flashMessage['type'] ?>"><?= $flashMessage['message'] ?></div>
-        <?php } ?>
-    <?php } ?>
     <form action="" method="post" class="w-full max-w-sm">
         <div class="md:flex md:items-center mb-6">
             <div class="md:w-1/3">
