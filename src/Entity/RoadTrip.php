@@ -13,8 +13,56 @@ class RoadTrip {
 
     private ?int $id;
     private ?string $intitule;
-    private ?string $typeVehicule;
+    private ?string $type_vehicule;
     private ?int $user_id;
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIntitule()
+    {
+        return $this->intitule;
+    }
+
+    /**
+     * @param string|null $intitule
+     */
+    public function setIntitule(?string $intitule): void
+    {
+        $this->intitule = $intitule;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTypeVehicule(): ?string
+    {
+        return $this->type_vehicule;
+    }
+
+    /**
+     * @param string|null $type_vehicule
+     */
+    public function setTypeVehicule(?string $type_vehicule): void
+    {
+        $this->type_vehicule = $type_vehicule;
+    }
 
     /**
      * @return string|null
@@ -38,54 +86,6 @@ class RoadTrip {
     public function setUserId($user_id): void
     {
         $this->user_id = $user_id;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int|null $id
-     */
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getIntitule(): ?string
-    {
-        return $this->intitule;
-    }
-
-    /**
-     * @param string|null $intitule
-     */
-    public function setIntitule(?string $intitule): void
-    {
-        $this->intitule = $intitule;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getTypeVehicule(): ?string
-    {
-        return $this->typeVehicule;
-    }
-
-    /**
-     * @param string|null $typeVehicule
-     */
-    public function setTypeVehicule(?string $typeVehicule): void
-    {
-        $this->typeVehicule = $typeVehicule;
     }
 
 

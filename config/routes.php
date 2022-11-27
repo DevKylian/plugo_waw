@@ -25,4 +25,16 @@ const ROUTES = [
         'controller' => \App\Controller\RoadTripController::class,
         'method' => 'addRoadTrip'
     ],
+    'detailsRoadTrip' => [
+        'controller' => \App\Controller\RoadTripController::class,
+        'method' => 'detailsRoadTrip'
+    ],
+    'removeRoadTrip' => [
+        'controller' => \App\Controller\RoadTripController::class,
+        'method' => 'removeRoadTrip'
+    ],
+    'updateRoadTrip' => [
+        'controller' => \App\Controller\RoadTripController::class,
+        'method' => 'updateRoadTrip'
+    ],
 ];

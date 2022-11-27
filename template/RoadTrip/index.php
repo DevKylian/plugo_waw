@@ -5,8 +5,18 @@
                 <h2 class="card-title"><?= $currentRoadTrip->getIntitule() ?></h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
                 <h3><?= $currentRoadTrip->getUser()->getEmail() ?></h3>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Découvrir</button>
+                <div class="flex justify-end gap-5">
+                    <?php if($_SESSION['user']['id'] == $currentRoadTrip->getUser()->getId()){ ?>
+                        <div class="card-actions">
+                            <a href="/index.php?page=updateRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-warning">Modifier</a>
+                        </div>
+                        <div class="card-actions">
+                            <a href="/index.php?page=removeRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-error">Supprimer</a>
+                        </div>
+                    <?php } ?>
+                    <div class="card-actions">
+                        <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-primary">Détails</a>
+                    </div>
                 </div>
             </div>
         </div>

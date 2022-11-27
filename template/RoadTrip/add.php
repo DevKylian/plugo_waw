@@ -23,10 +23,19 @@
             <div class="card w-46 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="card-title">Départ</h2>
-                    <input type="text" placeholder="Nom du checkpoint" name="checkPoint[checkPointDepart][nom]" required>
-                    <input type="text" placeholder="Coordonnees" name="checkPoint[checkPointDepart][coordonnees]" required>
-                    <input type="date" placeholder="Date depart" name="checkPoint[checkPointDepart][date_depart]" required>
-                    <input type="date" placeholder="Date arrive" name="checkPoint[checkPointDepart][date_arrive]" required>
+                    <label>
+                        Nom
+                        <input type="text" placeholder="Nom du checkpoint" name="checkPoint[checkPointDepart][nom]" required>
+                    </label>
+                    <label>
+                        <input type="text" placeholder="Coordonnees" name="checkPoint[checkPointDepart][coordonnees]" required>
+                    </label>
+                    <label>
+                        <input type="date" placeholder="Date depart" name="checkPoint[checkPointDepart][date_depart]" required>
+                    </label>
+                    <label>
+                        <input type="date" placeholder="Date arrive" name="checkPoint[checkPointDepart][date_arrive]" required>
+                    </label>
                 </div>
             </div>
             <button id="add-etape">Ajouter etape</button>
@@ -67,7 +76,7 @@
                         </div>`;
             $(card).insertBefore($(this));
             i = i + 1;
-        })
+        });
     });
 </script>
 
