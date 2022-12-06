@@ -37,4 +37,8 @@ const ROUTES = [
         'controller' => \App\Controller\RoadTripController::class,
         'method' => 'updateRoadTrip'
     ],
+    'removeCheckPoint' => [
+        'controller' => \App\Controller\CheckpointController::class,
+        'method' => 'deleteCheckPoint',
+    ]
 ];

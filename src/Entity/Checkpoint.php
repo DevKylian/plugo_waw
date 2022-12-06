@@ -101,7 +101,7 @@ class Checkpoint {
     /**
      * @return RoadTrip|null
      */
-    public function getRoadtripId(): ?RoadTrip
+    public function getRoadtrip(): ?RoadTrip
     {
         return $this->roadTrip->findOneBy(['id' => $this->roadtrip_id]);
     }
