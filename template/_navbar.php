@@ -35,7 +35,13 @@
         </div>
         <?php if(isset($_SESSION['user'])){ ?>
             <div class="navbar-end">
-                <a href="index.php?page=user_profile" class="btn">Mon Profil</a>
+                <a href="index.php?page=user_profile">
+                    <div class="avatar">
+                        <div class="w-12 rounded">
+                            <img src="https://placeimg.com/192/192/people" />
+                        </div>
+                    </div>
+                </a>
             </div>
         <?php } ?>
     </nav>

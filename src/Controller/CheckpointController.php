@@ -15,7 +15,6 @@ class CheckpointController extends AbstractController {
     public function deleteCheckPoint() {
         $checkPointManager = new CheckpointManager();
         $checkPoint = $checkPointManager->findBy(['id' => $_GET['id']]);
-        var_dump($checkPoint[0]->getRoadtrip()->getUser()->getId());
         if($checkPoint[0]->getRoadtrip()->getUser()->getId() == $_SESSION['user']['id']){
             $checkPointManager->remove($checkPoint[0]);
         }else{
