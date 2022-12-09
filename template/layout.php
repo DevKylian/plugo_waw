@@ -21,7 +21,7 @@
                 <div class="alert-<?= $flashMessage['type'] ?>"><?= $flashMessage['message'] ?></div>
             <?php } ?>
         <?php } ?>
-        <main class="container mx-auto px-4">
+        <main class="">
             <?php require $templatePath ?>
         </main>
         <?php include '_footer.php' ?>
