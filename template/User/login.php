@@ -1,7 +1,7 @@
 <div class="flex flex-col my-20 items-center">
         <img src="C:\\Documents\\logo.png" alt="logo-waw">
         <h1 class="text-4xl font-bold text-black mb-10">Connexion</h1>
-        <form action="" method="POST">
+        <form action="" method="POST" class="w-4/5 sm:w-3/6 lg:w-2/6">
             <div class="md:items-center mb-10">
                 <label class="block text-black font-bold mb-1 md:mb-0 pr-4 w-full" for="email">Adresse Email</label>
                 <input class="bg-white appearance-none rounded-none border border-black w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-amber-500" type="email" id="email" name="email" placeholder="Adresse Email" required>
