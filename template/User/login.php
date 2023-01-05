@@ -1,28 +1,21 @@
-<div class="container w-full mt-5" align="center">
-    <form action="" method="POST" class="w-full max-w-sm">
-        <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3">
-                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="email">Adresse Email</label>
+<div class="flex flex-col my-20 items-center">
+        <img src="C:\\Documents\\logo.png" alt="logo-waw">
+        <h1 class="text-4xl font-bold text-black mb-10">Connexion</h1>
+        <form action="" method="POST">
+            <div class="md:items-center mb-10">
+                <label class="block text-black font-bold mb-1 md:mb-0 pr-4 w-full" for="email">Adresse Email</label>
+                <input class="bg-white appearance-none rounded-none border border-black w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-amber-500" type="email" id="email" name="email" placeholder="Adresse Email" required>
             </div>
-            <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="email" id="email" name="email" placeholder="Email address" required>
+            <div class="md:items-center mb-10">
+                <label class="block text-black font-bold mb-1 md:mb-0 pr-4 w-full" for="password">Mot de passe</label>
+                <input class="bg-white appearance-none border border-black w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-amber-500" type="password" id="password" name="password" placeholder="Mot de passe" minlength="8" required>
             </div>
-        </div>
-        <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3">
-                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="password">Mot de passe</label>
-            </div>
-            <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="password" id="password" name="password" minlength="8" required>
-            </div>
-        </div>
-        <div class="md:flex md:items-center">
-            <div class="md:w-1/3"></div>
-            <div class="md:w-2/3">
-                <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+            <div class="text-center">
+                <button class="shadow btn bg-amber-300 hover:bg-amber-400 focus:shadow-outline focus:outline-none text-black font-bold px-4 rounded border-none" type="submit">
                     Se connecter
                 </button>
             </div>
-        </div>
-    </form>
+        </form>
+        <a href="index.php?page=inscription" class="text-center text-blue-500 hover:text-blue-600 underline my-10">Vous n’avez pas encore de compte ? <br> Cliquez ici pour vous inscrire !</a>
+    </div>
 </div>
