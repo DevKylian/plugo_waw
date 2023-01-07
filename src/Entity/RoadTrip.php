@@ -14,7 +14,10 @@ class RoadTrip {
     private ?int $id;
     private ?string $intitule;
     private ?string $type_vehicule;
+    private ?string $illustration = null;
     private ?int $user_id;
+
+
 
     /**
      * @return int|null
@@ -70,6 +73,22 @@ class RoadTrip {
     public function getUserId(): ?string
     {
         return $this->user_id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    /**
+     * @param string|null $illustration
+     */
+    public function setIllustration(?string $illustration): void
+    {
+        $this->illustration = $illustration;
     }
 
     /**

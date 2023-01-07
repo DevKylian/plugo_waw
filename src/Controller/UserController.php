@@ -21,17 +21,17 @@ class UserController extends AbstractController {
             $checkCredentials = new CheckCredentials();
             $UserManager = new UserManager();
 
-            $isError = false;
+            $iserror = false;
 
             if(!$checkCredentials->checkEmail($_POST['email'])){
-                $isError = true;
+                $iserror = true;
             }
 
             if(!$checkCredentials->checkPassword($_POST['password'], $_POST['passwordVerif'])){
-                $isError = true;
+                $iserror = true;
             }
 
-            if(!$isError){
+            if(!$iserror){
                 if(empty($UserManager->findOneBy(['email' => $_POST['email']]))){
                     $user = new User();
                     $user->setEmail($_POST['email']);
@@ -40,11 +40,11 @@ class UserController extends AbstractController {
 
                     $UserManager->add($user);
 
-                    $this->flashMessage->generateFlashMessage('AuthenticationSuccess', 'Success', 'Le compte a bien été créé !');
+                    $this->flashMessage->generateFlashMessage('Authenticationsuccess', 'success', 'Le compte a bien été créé !');
 
                     return $this->redirectToRoute('login');
                 }else{
-                    $this->flashMessage->generateFlashMessage('AuthenticationErrorInscription', 'Error', 'Un compte existe déjà avec cette adresse email');
+                    $this->flashMessage->generateFlashMessage('AuthenticationerrorInscription', 'error', 'Un compte existe déjà avec cette adresse email');
                 }
             }
 
@@ -59,7 +59,7 @@ class UserController extends AbstractController {
             if($result){
                 return $this->redirectToRoute('home');
             }else{
-                $this->flashMessage->generateFlashMessage('AuthenticationErrorLogin', 'Error', 'Erreur lors de la connexion. L\'adresse email ou le mot de passe ne correrspondent pas');
+                $this->flashMessage->generateFlashMessage('AuthenticationerrorLogin', 'error', 'Erreur lors de la connexion. L\'adresse email ou le mot de passe ne correrspondent pas');
             }
         }
 

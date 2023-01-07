@@ -8,6 +8,7 @@ use Plugo\Controller\AbstractController;
 use App\Entity\RoadTrip;
 use App\Manager\RoadTripManager;
 use Plugo\Services\FlashMessage\FlashMessage;
+use Plugo\Services\ImageUploader\ImageUploader;
 
 class RoadTripController extends AbstractController {
 
@@ -34,12 +35,20 @@ class RoadTripController extends AbstractController {
         $roadTripManager = new RoadTripManager();
         if(isset($_POST) && !empty($_POST)){
             if(empty($_POST['checkPoint']) || empty($_POST['checkPoint']['checkPointDepart']) || empty($_POST['checkPoint']['checkPointArrive'])){
-                $this->flashMessage->generateFlashMessage('CheckpointError', 'Error', 'Le point de départ et/ou d\'arrivée n\'as pas été défini');
+                $this->flashMessage->generateFlashMessage('Checkpointerror', 'error', 'Le point de départ et/ou d\'arrivée n\'as pas été défini');
                 return $this->redirectToRoute('addRoadTrip');
             }else{
                 $roadTrip = new RoadTrip();
                 $roadTrip->setIntitule($_POST['nomVoyage']);
                 $roadTrip->setTypeVehicule($_POST['typeVehicule']);
+                if(isset($_FILES['file']) && !empty($_FILES['file'])){
+                    $folderName = uniqid($_SESSION['user']['id']);
+                    $imageUploader = new ImageUploader();
+                    $result = $imageUploader->uploadPicture($_FILES, $folderName);
+                    if($result){
+                        $roadTrip->setIllustration($result);
+                    }
+                }
                 $roadTrip->setUserId($_SESSION['user']['id']);
                 $roadTripManager->add($roadTrip);
 
@@ -93,10 +102,10 @@ class RoadTripController extends AbstractController {
                 }
             }
             $roadTripManager->remove($roadTrip[0]);
-            $this->flashMessage->generateFlashMessage('SuppressionSuccess', 'Success', 'Le roadtrip et ses checkpoint ont bien été supprimés');
+            $this->flashMessage->generateFlashMessage('Suppressionsuccess', 'success', 'Le roadtrip et ses checkpoint ont bien été supprimés');
             return $this->redirectToRoute('allRoadTrip');
         }else{
-            $this->flashMessage->generateFlashMessage('NotSameUser', 'Error', 'Vous ne pouvez pas supprimer ce roadtrip, seul le créateur de ce roadtrip peut effectuer cette action');
+            $this->flashMessage->generateFlashMessage('NotSameUser', 'error', 'Vous ne pouvez pas supprimer ce roadtrip, seul le créateur de ce roadtrip peut effectuer cette action');
             return $this->redirectToRoute('allRoadTrip');
         }
     }
@@ -123,13 +132,13 @@ class RoadTripController extends AbstractController {
                 $roadTrip->setIntitule($_POST['nomVoyage']);
                 $roadTrip->setTypeVehicule($_POST['typeVehicule']);
                 $roadTripManager->edit($roadTrip);
-                $this->flashMessage->generateFlashMessage('RoadTripUpdate', 'Success', 'Roadtrip modifié');
+                $this->flashMessage->generateFlashMessage('RoadTripUpdate', 'success', 'Roadtrip modifié');
                 return $this->redirectToRoute('detailsRoadTrip', ['id' => $roadTrip->getId()]);
             }
             $listeCheckPoint = $checkPointManager->findBy(['roadtrip_id' => $_GET['id']]);
             return $this->renderView('RoadTrip/edit.php', ['roadTrip' => $roadTrip, 'listeCheckPoint' => $listeCheckPoint]);
         }else{
-            $this->flashMessage->generateFlashMessage('NotSameUser', 'Error', 'Vous ne pouvez pas supprimer ce roadtrip, seul le créateur de ce roadtrip peut effectuer cette action');
+            $this->flashMessage->generateFlashMessage('NotSameUser', 'error', 'Vous ne pouvez pas supprimer ce roadtrip, seul le créateur de ce roadtrip peut effectuer cette action');
             return $this->redirectToRoute('allRoadTrip');
         }
     }

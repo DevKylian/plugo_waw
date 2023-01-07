@@ -1,5 +1,5 @@
 <div class="flex flex-col my-20 items-center">
-        <img src="C:\\Documents\\logo.png" alt="logo-waw">
+        <img src="/images/logo.png" alt="logo-waw">
         <h1 class="text-4xl font-bold text-black mb-10">Connexion</h1>
         <form action="" method="POST" class="w-4/5 sm:w-3/6 lg:w-2/6">
             <div class="md:items-center mb-10">
@@ -16,6 +16,6 @@
                 </button>
             </div>
         </form>
-        <a href="index.php?page=inscription" class="text-center text-blue-500 hover:text-blue-600 underline my-10">Vous n’avez pas encore de compte ? <br> Cliquez ici pour vous inscrire !</a>
+        <a href="index.php?page=register" class="text-center text-blue-500 hover:text-blue-600 underline my-10">Vous n’avez pas encore de compte ? <br> Cliquez ici pour vous inscrire !</a>
     </div>
 </div>

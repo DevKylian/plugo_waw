@@ -30,21 +30,47 @@
                 tristique, lacus nunc porttitor metus, at lacinia nisl nulla eget nulla</p>
         </div>
     </div>
-    <div class="flex overflow-x-scroll scrollbar-hide mb-20 px-5 w-full h-96" align="center">
-        <div class="flex flex-row space-x-16 m-auto">
-            <?php foreach ($data['listeRoadTrip'] as $currentRoadTrip) { ?>
-                <a href="index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId(); ?>" class="hover:scale-110 ease-in duration-500">
-                    <div class="w-72 xl:w-96 overflow-hidden shadow-lg border">
-                        <img class="w-full" src="https://v1.tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
-                        <div class="text-left mx-3">
-                            <div class="font-bold text-black text-2xl mb-2"><?= $currentRoadTrip->getIntitule(); ?></div>
-                        </div>
-                        <div class="text-left mx-3 pb-2">
-                            <span class="inline-block bg-amber-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#<?= $currentRoadTrip->getTypeVehicule(); ?></span>
-                        </div>
+    <div class="flex overflow-x-scroll scrollbar-hide mb-20 px-5 w-full" align="center">
+        <div class="container my-12 mx-auto px-4 md:px-12">
+            <div class="flex flex-wrap -mx-1 lg:-mx-4">
+                <?php foreach ($data['listeRoadTrip'] as $currentRoadTrip) { ?>
+                    <!-- Column -->
+                    <div class="my-1 px-1 w-full sm:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+                        <!-- Article -->
+                        <article class="overflow-hidden border shadow-lg">
+                            <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
+                                <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/600/400/?random" ?>">
+                            </a>
+                            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                <h1 class="text-lg">
+                                    <a class="no-underline hover:underline text-black" href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
+                                        <?= $currentRoadTrip->getIntitule() ?>
+                                    </a>
+                                </h1>
+                                <p class="text-grey-darker text-sm">
+                                    <span class="">#<?= $currentRoadTrip->getTypeVehicule(); ?></span>
+                                </p>
+                            </header>
+                            <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                                <a class="flex items-center no-underline hover:underline text-black" href="#">
+                                    <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
+                                    <p class="ml-2 text-sm">
+                                        <?= $currentRoadTrip->getUser()->getEmail() ?>
+                                    </p>
+                                </a>
+                                <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $currentRoadTrip->getUser()->getId()){ ?>
+                                    <div>
+                                        <a href="/index.php?page=updateRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-sm btn-warning rounded-none"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="/index.php?page=removeRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-sm btn-error rounded-none"><i class="fa-solid fa-trash"></i></a>
+                                    </div>
+                                <?php } ?>
+                            </footer>
+                        </article>
+                        <!-- END Article -->
                     </div>
-                </a>
-            <?php } ?>
+                    <!-- END Column -->
+                <?php } ?>
+            </div>
         </div>
     </div>
 </div>

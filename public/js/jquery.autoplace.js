@@ -20,7 +20,7 @@
 
 		} else {
 
-			throw new Error('Invalid arguments for AutoPlace: ' + options);
+			throw new error('Invalid arguments for AutoPlace: ' + options);
 
 		}
 
