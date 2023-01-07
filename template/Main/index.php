@@ -1,10 +1,10 @@
 <div class="relative">
-    <img src="images/home-backgroung.png" class="w-full lg:h-full h-[50vh] lg:object-fill object-none"
+    <img src="images/home-backgroung.png" class="w-full brightness-50 lg:h-full h-[50vh] lg:object-fill object-none"
          alt="background-home"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 class="font-bold text-4xl lg:text-5xl">Voyagez en toute simplicité</h1>
         <p class="font-light my-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <a class="btn btn-sm md:btn-md bg-amber-300 hover:bg-amber-400 text-black border-none">En savoir plus</a>
+        <a class="btn bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">En savoir plus</a>
     </div>
 </div>
 <!-- Qui sommes nous -->
@@ -17,7 +17,6 @@
         <p class="text-black xl:w-2/3 my-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et arcu augue.
             In sollicitudin sem nec leo interdum porttitor. Pellentesque dapibus, odio vel molestie tristique, lacus
             nunc porttitor metus, at lacinia nisl nulla eget nulla</p>
-        <a href="index.php?page=allRoadTrip" class="btn btn-sm bg-amber-300 hover:bg-amber-400 text-black border-none text-center">Voir les roadtrips</a>
     </div>
 </div>
 <!-- Derniers roadtrips -->
@@ -72,5 +71,8 @@
                 <?php } ?>
             </div>
         </div>
+    </div>
+    <div class="w-full flex mb-10">
+        <a class="btn bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-auto">Tout nos road trips</a>
     </div>
 </div>

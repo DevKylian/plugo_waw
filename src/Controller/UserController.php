@@ -17,6 +17,10 @@ class UserController extends AbstractController {
     }
 
     public function register() {
+        if(isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         if(isset($_POST) && !empty($_POST)){
             $checkCredentials = new CheckCredentials();
             $UserManager = new UserManager();
@@ -53,6 +57,10 @@ class UserController extends AbstractController {
     }
 
     public function login() {
+        if(isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         if(isset($_POST) && !empty($_POST)){
             $authenticator = new Authenticator();
             $result = $authenticator->login($_POST);
@@ -67,6 +75,10 @@ class UserController extends AbstractController {
     }
 
     public function logout() {
+        if(!isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         $authenticator = new Authenticator();
         $authenticator->logout();
 

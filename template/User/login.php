@@ -3,15 +3,15 @@
         <h1 class="text-4xl font-bold text-black mb-10">Connexion</h1>
         <form action="" method="POST" class="w-4/5 sm:w-3/6 lg:w-2/6">
             <div class="md:items-center mb-10">
-                <label class="block text-black font-bold mb-1 md:mb-0 pr-4 w-full" for="email">Adresse Email</label>
-                <input class="bg-white appearance-none rounded-none border border-black w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-amber-500" type="email" id="email" name="email" placeholder="Adresse Email" required>
+                <label class="block text-gray-700 text-xl font-bold mb-2" for="email">Adresse Email</label>
+                <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="email" id="email" name="email" placeholder="Adresse Email" required>
             </div>
             <div class="md:items-center mb-10">
-                <label class="block text-black font-bold mb-1 md:mb-0 pr-4 w-full" for="password">Mot de passe</label>
-                <input class="bg-white appearance-none border border-black w-full py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-amber-500" type="password" id="password" name="password" placeholder="Mot de passe" minlength="8" required>
+                <label class="block text-gray-700 text-xl font-bold mb-2" for="password">Mot de passe</label>
+                <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="password" id="password" name="password" placeholder="Mot de passe" minlength="8" required>
             </div>
             <div class="text-center">
-                <button class="shadow btn bg-amber-300 hover:bg-amber-400 focus:shadow-outline focus:outline-none text-black font-bold px-4 rounded border-none" type="submit">
+                <button class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out btn" type="submit">
                     Se connecter
                 </button>
             </div>

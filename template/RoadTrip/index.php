@@ -1,5 +1,5 @@
 <div class="relative">
-    <img src="images/liste-roadtrip-background.png" class="w-full lg:h-full h-[50vh] lg:object-fill object-none"
+    <img src="images/liste-roadtrip-background.png" class="w-full brightness-50 lg:h-full h-[50vh] lg:object-fill object-none"
          alt="background-liste-roadtrips"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 class="font-bold text-4xl lg:text-5xl">Les road trips de nos utilisateurs</h1>

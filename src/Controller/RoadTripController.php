@@ -32,6 +32,10 @@ class RoadTripController extends AbstractController {
      * @return string|null
      */
     public function addRoadTrip() {
+        if(!isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         $roadTripManager = new RoadTripManager();
         if(isset($_POST) && !empty($_POST)){
             if(empty($_POST['checkPoint']) || empty($_POST['checkPoint']['checkPointDepart']) || empty($_POST['checkPoint']['checkPointArrive'])){
@@ -89,6 +93,10 @@ class RoadTripController extends AbstractController {
      * @return null
      */
     public function removeRoadTrip() {
+        if(!isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         $roadTripManager = new RoadTripManager();
         $checkPointManager = new CheckpointManager();
 
@@ -111,6 +119,10 @@ class RoadTripController extends AbstractController {
     }
 
     public function updateRoadTrip() {
+        if(!isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         $roadTripManager = new RoadTripManager();
         $checkPointManager = new CheckpointManager();
 
@@ -123,6 +135,14 @@ class RoadTripController extends AbstractController {
                     $checkPoint = $checkPointManager->findOneBy(['id' => $currentCheckPoint['id']]);
                     $checkPoint->setNom($currentCheckPoint['nom']);
                     $checkPoint->setCoordonnee($currentCheckPoint['coordonnees']);
+                    if(isset($_FILES['file']) && !empty($_FILES['file'])){
+                        $folderName = uniqid($_SESSION['user']['id']);
+                        $imageUploader = new ImageUploader();
+                        $result = $imageUploader->uploadPicture($_FILES, $folderName);
+                        if($result){
+                            $roadTrip->setIllustration($result);
+                        }
+                    }
                     $checkPoint->setDateDepart($currentCheckPoint['date_depart']);
                     $checkPoint->setDateArrive($currentCheckPoint['date_arrive']);
 

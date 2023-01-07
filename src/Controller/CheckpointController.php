@@ -13,6 +13,10 @@ class CheckpointController extends AbstractController {
      * @return void
      */
     public function deleteCheckPoint() {
+        if(!isset($_SESSION['user'])){
+            return $this->redirectToRoute('home');
+        }
+
         $checkPointManager = new CheckpointManager();
         $checkPoint = $checkPointManager->findBy(['id' => $_GET['id']]);
         if($checkPoint[0]->getRoadtrip()->getUser()->getId() == $_SESSION['user']['id']){
