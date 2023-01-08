@@ -40,5 +40,9 @@ const ROUTES = [
     'removeCheckPoint' => [
         'controller' => \App\Controller\CheckpointController::class,
         'method' => 'deleteCheckPoint',
+    ],
+    'updateCheckPoint' => [
+        'controller' => \App\Controller\CheckpointController::class,
+        'method' => 'updateCheckPoint',
     ]
 ];

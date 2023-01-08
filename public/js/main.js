@@ -43,6 +43,10 @@ function highlight_navigation(){
 
 $(document).ready(function (){
 
+    $(".alert").on('click', function(){
+        $(this).remove();
+    });
+
     highlight_navigation();
 
     $("#accueil, #liste-road-trip, #creer-road-trip").on('click', function(){
@@ -53,7 +57,7 @@ $(document).ready(function (){
         event.preventDefault();
         let redirect = $(this).attr('href');
         Swal.fire({
-            title: 'Voulez vous vraiment supprimer ce road trip ?',
+            title: 'Voulez-vous vraiment le supprimer ?',
             showDenyButton: true,
             showCancelButton: false,
             confirmButtonText: 'Supprimer',

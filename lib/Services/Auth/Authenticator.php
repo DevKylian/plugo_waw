@@ -21,15 +21,20 @@ class Authenticator {
     public function login(array $userInfo) {
         $em = new UserManager();
         $user = $em->findOneBy(['email' => $userInfo['email']]);
-        $userPassword = $user->getPassword();
-        if(password_verify($userInfo['password'], $userPassword)){
-            $_SESSION['user']['id'] = $user->getId();
-            $_SESSION['user']['email'] = $user->getEmail();
-            $_SESSION['user']['created_at'] = $user->getCreatedAt();
-            return true;
+        if($user){
+            $userPassword = $user->getPassword();
+            if(password_verify($userInfo['password'], $userPassword)){
+                $_SESSION['user']['id'] = $user->getId();
+                $_SESSION['user']['email'] = $user->getEmail();
+                $_SESSION['user']['created_at'] = $user->getCreatedAt();
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
+
     }
 
 }

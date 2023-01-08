@@ -9,15 +9,15 @@
     <h2 class="text-black font-bold text-4xl mb-5">INFORMATION DU ROAD TRIP</h2>
     <form action="" method="POST" class="flex flex-col w-full justify-center items-center" enctype="multipart/form-data">
         <div class="w-4/5 sm:w-3/6 lg:w-2/6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="nomVoyage">Intitulé <span class="text-red-500">*</span></label>
+            <label class="block text-gray-700 text-sm font-bold my-2" for="nomVoyage">Intitulé <span class="text-red-500">*</span></label>
             <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="text" id="nomVoyage" name="nomVoyage" placeholder="Voyage..." required>
         </div>
         <div class="w-4/5 sm:w-3/6 lg:w-2/6 mt-10">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="typeVehicule">Véhicule <span class="text-red-500">*</span></label>
+            <label class="block text-gray-700 text-sm font-bold my-2" for="typeVehicule">Véhicule <span class="text-red-500">*</span></label>
             <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="text" id="typeVehicule" name="typeVehicule" placeholder="Voiture, Moto,..." required>
         </div>
         <div class="w-4/5 sm:w-3/6 lg:w-2/6 mt-10">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="file">Image d'illustration</label>
+            <label class="block text-gray-700 text-sm font-bold my-2" for="file">Image d'illustration</label>
             <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="file" id="file" name="file" accept="image/png, image/jpeg">
         </div>
         <h2 class="text-black font-bold text-4xl my-5">VOS ETAPES</h2>
@@ -28,20 +28,20 @@
                     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Départ <span class="text-red-500">*</span></h5>
                     <hr>
                     <p class="text-gray-700 text-base mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                        <label class="block text-gray-700 text-sm font-bold my-2">
                             Intitulé <span class="text-red-500">*</span>
                         </label>
                         <input type="text" placeholder="Nom du checkpoint" name="checkPoint[checkPointDepart][nom]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                        <label class="block text-gray-700 text-sm font-bold my-2">
                             Adresse <span class="text-red-500">*</span>
                         </label>
                         <label for="my-modal-4" type="button" class="btn-open-modal inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter une adresse</label >
                         <input type="hidden" id="coordonnes-depart" placeholder="Coordonnees" name="checkPoint[checkPointDepart][coordonnees]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                        <label class="block text-gray-700 text-sm font-bold my-2">
                             Date de départ <span class="text-red-500">*</span>
                         </label>
                         <input type="date" placeholder="Date depart" name="checkPoint[checkPointDepart][date_depart]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                        <label class="block text-gray-700 text-sm font-bold my-2">
                             Date d'arrivée <span class="text-red-500">*</span>
                         </label>
                         <input type="date" placeholder="Date arrive" name="checkPoint[checkPointDepart][date_arrive]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
@@ -57,20 +57,20 @@
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
                     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Arrivée <span class="text-red-500">*</span></h5>
                     <hr>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Intitulé <span class="text-red-500">*</span>
                     </label>
                     <input type="text" placeholder="Nom du checkpoint" name="checkPoint[checkPointArrive][nom]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Adresse <span class="text-red-500">*</span>
                     </label>
                     <label for="my-modal-4" type="button" class="btn-open-modal inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter une adresse</label >
                     <input type="hidden" id="coordonnes-arrive" placeholder="Coordonnees" name="checkPoint[checkPointArrive][coordonnees]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white input-coordonnees" required>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Date de départ <span class="text-red-500">*</span>
                     </label>
                     <input type="date" placeholder="Date depart" name="checkPoint[checkPointArrive][date_depart]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Date d'arrivée <span class="text-red-500">*</span>
                     </label>
                     <input type="date" placeholder="Date arrive" name="checkPoint[checkPointArrive][date_arrive]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
@@ -109,7 +109,7 @@
             </div>
         </div>
         <div class="float-right">
-            <label for="my-modal-4" id="modal-cancel" type="button" class=" inline-block my-5 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Annuler</label >
+            <label for="my-modal-4" id="modal-cancel" type="button" class=" inline-block my-5 px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">Annuler</label >
             <label for="my-modal-4" id="modal-validate" type="button" class=" inline-block my-5 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Valider</label >
         </div>
     </label>
@@ -192,20 +192,20 @@
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
                     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Etape ${i} <span class="text-red-500">*</span></h5>
                     <hr>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Intitulé <span class="text-red-500">*</span>
                     </label>
                     <input type="text" placeholder="Nom du checkpoint" name="checkPoint[checkPoint${i}][nom]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Adresse <span class="text-red-500">*</span>
                     </label>
                     <label for="my-modal-4" type="button" class="btn-open-modal inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter une adresse</label >
                     <input type="hidden" id="coordonnes-arrive" placeholder="Coordonnees" name="checkPoint[checkPoint${i}][coordonnees]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white input-coordonnees" required>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Date de départ <span class="text-red-500">*</span>
                     </label>
                     <input type="date" placeholder="Date depart" name="checkPoint[checkPoint${i}][date_depart]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <label class="block text-gray-700 text-sm font-bold my-2">
                         Date d'arrivée <span class="text-red-500">*</span>
                     </label>
                     <input type="date" placeholder="Date arrive" name="checkPoint[checkPoint${i}][date_arrive]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>

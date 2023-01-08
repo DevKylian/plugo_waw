@@ -3,32 +3,32 @@
         <nav class="flex flex-wrap justify-center -mx-5 -my-2">
             <div class="px-5 py-2">
                 <a href="#" class="text-base leading-6 text-gray-200 hover:text-gray-900">
-                    About
+                    A propos
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="#" class="text-base leading-6 text-gray-200 hover:text-gray-900">
-                    Blog
+                    Les actualités
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="#" class="text-base leading-6 text-gray-200 hover:text-gray-900">
-                    Team
+                    L'équipe
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="#" class="text-base leading-6 text-gray-200 hover:text-gray-900">
-                    Pricing
+                    Prix
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="#" class="text-base leading-6 text-gray-200 hover:text-gray-900">
-                    Contact
+                    Nous contacter
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="#" class="text-base leading-6 text-gray-200 hover:text-gray-900">
-                    Terms
+                    CGU
                 </a>
             </div>
         </nav>

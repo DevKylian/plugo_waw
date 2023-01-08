@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteRule ^accueil$ /index.php?page=home [NC,R]
+
+RewriteRule ^connexion$ /index.php?page=login [NC]
+RewriteRule ^connexion$ /index.php?page=login [NC]

@@ -14,7 +14,7 @@
                 <!-- Article -->
                 <article class="overflow-hidden border shadow-lg">
                     <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
-                        <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/600/400/?random" ?>">
+                        <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/1920/1080/?random" ?>">
                     </a>
                     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                         <h1 class="text-lg">

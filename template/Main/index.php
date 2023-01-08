@@ -38,7 +38,7 @@
                         <!-- Article -->
                         <article class="overflow-hidden border shadow-lg">
                             <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
-                                <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/600/400/?random" ?>">
+                                <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/1920/1080/?random" ?>">
                             </a>
                             <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                                 <h1 class="text-lg">
@@ -73,6 +73,6 @@
         </div>
     </div>
     <div class="w-full flex mb-10">
-        <a class="btn bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-auto">Tout nos road trips</a>
+        <a href="index.php?page=allRoadTrip" class="btn bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-auto">Tout nos road trips</a>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="relative">
-    <img src="<?= $data['roadTrip'][0]->getIllustration() != null ? $data['roadTrip'][0]->getIllustration() : "https://picsum.photos/600/400/?random" ?>" class="w-full brightness-50 lg:h-full h-[50vh] lg:object-fill object-none"
+    <img src="<?= $data['roadTrip'][0]->getIllustration() != null ? $data['roadTrip'][0]->getIllustration() : "https://picsum.photos/1920/1080/?random" ?>" class="w-full brightness-50 lg:h-full h-[50vh] lg:object-fill object-none"
          alt="background-liste-roadtrips"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 class="font-bold text-4xl lg:text-5xl"><?= $data['roadTrip'][0]->getIntitule() ?></h1>
@@ -11,16 +11,22 @@
         <?php foreach($data['listeCheckPoint'] as $index => $currentCheckpoint){ ?>
             <div class="flex justify-center">
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-4/5 border my-2">
-                    <?php if(array_key_first($data['listeCheckPoint']) == $index) { ?>
-                        <h3 class="text-gray-900 text-xl leading-tight font-medium mb-2 text-left">Départ</h3>
-                        <hr class="h-px mt-1 bg-gray-500 border-0 mx-2">
-                    <?php } else if(array_key_last($data['listeCheckPoint']) == $index) { ?>
-                        <h3 class="text-gray-900 text-xl leading-tight font-medium mb-2 text-left">Arrivée</h3>
-                        <hr class="h-px mt-1 bg-gray-500 border-0 mx-2">
-                    <?php } else { ?>
-                        <h3 class="text-gray-900 text-xl leading-tight font-medium mb-2 text-left">Étape <?= $index ?></h3>
-                        <hr class="h-px mt-1 bg-gray-500 border-0 mx-2">
-                    <?php } ?>
+                    <div class="flex items-center justify-between leading-none p-2 md:p-4">
+                        <?php if(array_key_first($data['listeCheckPoint']) == $index) { ?>
+                            <h3 class="text-gray-900 text-xl leading-tight font-medium mb-2 text-left">Départ</h3>
+                        <?php } else if(array_key_last($data['listeCheckPoint']) == $index) { ?>
+                            <h3 class="text-gray-900 text-xl leading-tight font-medium mb-2 text-left">Arrivée</h3>
+                        <?php } else { ?>
+                            <h3 class="text-gray-900 text-xl leading-tight font-medium mb-2 text-left">Étape <?= $index ?></h3>
+                        <?php } ?>
+                        <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $data['roadTrip'][0]->getUser()->getId()){ ?>
+                            <div>
+                                <a href="/index.php?page=updateCheckPoint&id=<?= $currentCheckpoint->getId() ?>&id_roadtrip=<?= $data['roadTrip'][0]->getId() ?>" class="btn btn-sm btn-warning rounded-none"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="/index.php?page=removeCheckPoint&id=<?= $currentCheckpoint->getId() ?>&id_roadtrip=<?= $data['roadTrip'][0]->getId() ?>" class="btn btn-sm btn-error rounded-none"><i class="fa-solid fa-trash"></i></a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <hr class="h-px mt-1 bg-gray-500 border-0 mx-2">
                     <p class="text-black text-xl text-left mx-5 my-1">
                         <span class="text-blue-700 text-xl leading-tight font-medium mb-2 text-left">Nom de l'étape </span>
                         <br><?= $currentCheckpoint->getNom(); ?>
