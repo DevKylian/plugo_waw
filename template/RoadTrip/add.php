@@ -1,5 +1,5 @@
 <div class="relative">
-    <img src="images/home-backgroung.png" class="w-full brightness-50 lg:h-full h-[50vh] lg:object-fill object-none"
+    <img src="images/home-backgroung.png" class="w-full brightness-50 h-[500px] lg:object-fill object-cover"
          alt="background-liste-roadtrips"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 class="font-bold text-4xl lg:text-5xl">Créez votre road trip</h1>
@@ -17,8 +17,16 @@
             <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="text" id="typeVehicule" name="typeVehicule" placeholder="Voiture, Moto,..." required>
         </div>
         <div class="w-4/5 sm:w-3/6 lg:w-2/6 mt-10">
-            <label class="block text-gray-700 text-sm font-bold my-2" for="file">Image d'illustration</label>
-            <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="file" id="file" name="file" accept="image/png, image/jpeg">
+            <div class="flex items-center justify-center w-full">
+                <label for="file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Appuyez pour envoyer une image</span></p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    </div>
+                    <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white hidden" type="file" id="file" name="file" accept="image/png, image/jpeg">
+                </label>
+            </div>
         </div>
         <h2 class="text-black font-bold text-4xl my-5">VOS ETAPES</h2>
         <h3 class="text-gray-500 text-muted text-2xl my-5 w-4/5 text-center">Pour pouvoir enregistrer votre road trip, il faut que vous ayez défini au moins le point de départ et l'arrivée.</h3>
@@ -35,8 +43,9 @@
                         <label class="block text-gray-700 text-sm font-bold my-2">
                             Adresse <span class="text-red-500">*</span>
                         </label>
+                        <input type="text" id="displayAddr-coordonnes-depart" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white mb-2" placeholder="3 Rue des potiers" readonly>
                         <label for="my-modal-4" type="button" class="btn-open-modal inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter une adresse</label >
-                        <input type="hidden" id="coordonnes-depart" placeholder="Coordonnees" name="checkPoint[checkPointDepart][coordonnees]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
+                        <input type="text" id="coordonnes-depart" placeholder="Coordonnees" name="checkPoint[checkPointDepart][coordonnees]" class="opacity-0 h1 cursor-default shadow appearance-none border rounded w-full px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" required>
                         <label class="block text-gray-700 text-sm font-bold my-2">
                             Date de départ <span class="text-red-500">*</span>
                         </label>
@@ -64,8 +73,9 @@
                     <label class="block text-gray-700 text-sm font-bold my-2">
                         Adresse <span class="text-red-500">*</span>
                     </label>
+                    <input type="text" id="displayAddr-coordonnes-arrive" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white mb-2" placeholder="3 Rue des potiers" readonly>
                     <label for="my-modal-4" type="button" class="btn-open-modal inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter une adresse</label >
-                    <input type="hidden" id="coordonnes-arrive" placeholder="Coordonnees" name="checkPoint[checkPointArrive][coordonnees]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white input-coordonnees" required>
+                    <input type="text" id="coordonnes-arrive" placeholder="Coordonnees" name="checkPoint[checkPointArrive][coordonnees]" class="opacity-0 h-1 pointer-default shadow appearance-none border rounded w-full px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white input-coordonnees" required>
                     <label class="block text-gray-700 text-sm font-bold my-2">
                         Date de départ <span class="text-red-500">*</span>
                     </label>
@@ -117,9 +127,8 @@
 
 <script>
 
-    $(".btn-open-modal").on('click', function(){
+    $(document).on('click', ".btn-open-modal" , function(){
         $("#my-modal-4").attr('value', $(this).next('input').attr('id'));
-
     });
 
     $(document).on('click', "#modal-cancel" ,function(){
@@ -129,9 +138,14 @@
     });
 
     $(document).on('click', "#modal-validate" , function(){
+        let value = $('.active').attr('value');
+        console.log(value);
+        let valueParsed = JSON.parse(value);
+        console.log($("#my-modal-4").attr('value'));
         $("result-list").empty();
         $("#search").val('');
-        $("#" + $("#my-modal-4").attr('value')).attr('value', $('.active').attr('value'));
+        $("#" + $("#my-modal-4").attr('value')).attr('value', value);
+        $("#displayAddr-" + $("#my-modal-4").attr('value')).attr('value', valueParsed.displayName);
         $("#my-modal-4").attr('value', '');
     });
     const searchInput = document.getElementById('search');
@@ -187,7 +201,8 @@
 
     $(document).ready(function(){
         let i = 1;
-        $('#add-etape').on('click', function () {
+
+        $(document).on('click', '#add-etape', function () {
             let card = `<div class="flex justify-center">
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
                     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Etape ${i} <span class="text-red-500">*</span></h5>
@@ -199,8 +214,9 @@
                     <label class="block text-gray-700 text-sm font-bold my-2">
                         Adresse <span class="text-red-500">*</span>
                     </label>
+                    <input type="text" id="displayAddr-coordonnes-${i}" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white mb-2" placeholder="3 Rue des potiers" readonly>
                     <label for="my-modal-4" type="button" class="btn-open-modal inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Ajouter une adresse</label >
-                    <input type="hidden" id="coordonnes-arrive" placeholder="Coordonnees" name="checkPoint[checkPoint${i}][coordonnees]" class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white input-coordonnees" required>
+                    <input type="text" id="coordonnes-${i}" placeholder="Coordonnees" name="checkPoint[checkPoint${i}][coordonnees]" class="opacity-0 h-1 pointer-default shadow appearance-none border rounded w-full px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white input-coordonnees" required>
                     <label class="block text-gray-700 text-sm font-bold my-2">
                         Date de départ <span class="text-red-500">*</span>
                     </label>
