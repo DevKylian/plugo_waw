@@ -62,6 +62,8 @@ $(document).ready(function (){
             showCancelButton: false,
             confirmButtonText: 'Supprimer',
             denyButtonText: `Annuler`,
+            confirmButtonColor: '#2563eb',
+            denyButtonColor: '#4b5768',
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
