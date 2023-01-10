@@ -1,5 +1,5 @@
 <div class="relative">
-    <img src="images/home-backgroung.png" class="w-full brightness-50 lg:h-full h-[50vh] lg:object-fill object-none"
+    <img src="images/home-backgroung.png" class="w-full brightness-50 h-[500px] lg:object-fill object-cover"
          alt="background-home"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 class="font-bold text-4xl lg:text-5xl">Voyagez en toute simplicité</h1>
