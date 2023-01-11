@@ -1,8 +1,8 @@
 <div class="relative">
-    <img src="images/liste-roadtrip-background.png" class="w-full brightness-50 h-[500px] lg:object-fill object-cover"
-         alt="background-liste-roadtrips"/>
-    <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <h1 class="font-bold text-4xl lg:text-5xl">LES ROAD TRIPS DE : <span><?= $data['user']->getEmail() ?></span></h1>
+    <div class="w-full lg:h-full object-none bg-blue-900 py-20">
+        <div class="text-white">
+            <h1 class="font-bold text-4xl lg:text-5xl text-center">LES ROAD TRIPS DE : <span><?= $data['user']->getEmail() ?></h1>
+        </div>
     </div>
 </div>
 <div class="container my-12 mx-auto px-4 md:px-12">
@@ -27,7 +27,7 @@
                     </header>
                     <footer class="flex items-center justify-between leading-none p-2 md:p-4">
                         <a class="flex items-center no-underline hover:underline text-black" href="#">
-                            <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
+                            <img alt="Placeholder" class="block rounded-full h-6 w-6" src="<?= $currentRoadTrip->getUser()->getPicture() != null ? $currentRoadTrip->getUser()->getPicture() : "images/default-picture.png" ?>">
                             <p class="ml-2 text-sm">
                                 <?= $currentRoadTrip->getUser()->getEmail() ?>
                             </p>

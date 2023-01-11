@@ -9,6 +9,7 @@ use App\Manager\UserManager;
 use Plugo\Services\Auth\Authenticator;
 use Plugo\Services\Auth\CheckCredentials;
 use Plugo\Services\FlashMessage\FlashMessage;
+use Plugo\Services\ImageUploader\ImageUploader;
 
 class UserController extends AbstractController {
 
@@ -109,15 +110,22 @@ class UserController extends AbstractController {
 
             if(!$iserror){
                 $user->setPassword($_POST['password']);
-                print_r($user);
                 $userManager->edit($user);
-
                 $this->flashMessage->generateFlashMessage('PasswordUpdateSuccess', 'success', 'Mot de passe bien modifié !');
                 return $this->redirectToRoute('logout');
             }else{
-                //
+                $this->flashMessage->generateFlashMessage('PasswordUpdateError', 'error', 'Impossible de modifier le mot de passe !');
             }
+        }
 
+        if(isset($_FILES) && !empty($_FILES)){
+            $folderName = "user_" . uniqid($_SESSION['user']['id']);
+            $imageUploader = new ImageUploader();
+            $result = $imageUploader->uploadPicture($_FILES, $folderName);
+            if($result){
+                $user->setPicture($result);
+            }
+            $userManager->edit($user);
         }
 
         return $this->renderView('User/espace_membre.php', ['listeRoadTrip' => $listeRoadTrips, 'user' => $user]);

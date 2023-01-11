@@ -28,7 +28,7 @@
                     </header>
                     <footer class="flex items-center justify-between leading-none p-2 md:p-4">
                         <a class="flex items-center no-underline hover:underline text-black" href="#">
-                            <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
+                            <img alt="Placeholder" class="block rounded-full h-6 w-6" src="<?= $currentRoadTrip->getUser()->getPicture() != null ? $currentRoadTrip->getUser()->getPicture() : "images/default-picture.png" ?>">
                             <p class="ml-2 text-sm">
                                 <?= $currentRoadTrip->getUser()->getEmail() ?>
                             </p>

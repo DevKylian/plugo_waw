@@ -43,6 +43,10 @@ function highlight_navigation(){
 
 $(document).ready(function (){
 
+    $(document).on('click', '.delete-checkpoint', function(){
+        $(this).parent().parent().parent().remove();
+    })
+
     $(".alert").on('click', function(){
         $(this).remove();
     });
