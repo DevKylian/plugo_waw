@@ -21,10 +21,13 @@
         </div>
         <div class="w-4/5 sm:w-3/6 lg:w-2/6 mt-10">
             <label class="block text-gray-700 text-sm font-bold my-2" for="file">Image d'illustration</label>
-            <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="file" id="file" name="file" accept="image/png, image/jpeg" value="<?= $data['roadTrip']->getIllustration() ?>">
+            <input class="input file:bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="file" id="file" name="file" accept="image/png, image/jpeg" value="<?= $data['roadTrip']->getIllustration() ?>">
         </div>
         <h2 class="text-black font-bold text-4xl my-5">VOS ETAPES</h2>
-        <h3 class="text-gray-500 text-muted text-2xl w-4/5 text-center my-5">Pour pouvoir enregistrer votre road trip, il faut que vous ayez défini au moins le point de départ et l'arrivée.</h3>
+        <div class="bg-orange-50 rounded shadow-lg border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+            <p class="font-bold">Attention</p>
+            <p>Pour enregistrer ce road trip, vous devez avoir défini au minimum un point de départ et d'arrivée.</p>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-5 mx-2 w-5/6">
             <?php foreach($data['listeCheckPoint'] as $currentCheckPointKey => $currentCheckPointVal) { ?>
                 <div class="flex justify-center">

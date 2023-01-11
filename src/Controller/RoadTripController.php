@@ -108,6 +108,9 @@ class RoadTripController extends AbstractController {
                     $checkPointManager->remove($currentCheckPoint);
                 }
             }
+            if(file_exists($roadTrip[0]->getIllustration())){
+                unlink($roadTrip[0]->getIllustration());
+            }
             $roadTripManager->remove($roadTrip[0]);
             $this->flashMessage->generateFlashMessage('Suppressionsuccess', 'success', 'Le roadtrip et ses checkpoint ont bien été supprimés');
             return $this->redirectToRoute('allRoadTrip');

@@ -8,6 +8,23 @@ class User {
     private ?string $email;
     private ?string $password;
     private $created_at;
+    private ?string $picture;
+
+    /**
+     * @return string|null
+     */
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string|null $picture
+     */
+    public function setPicture(?string $picture): void
+    {
+        $this->picture = $picture;
+    }
 
     /**
      * @return int|null

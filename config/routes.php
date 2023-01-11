@@ -44,5 +44,13 @@ const ROUTES = [
     'updateCheckPoint' => [
         'controller' => \App\Controller\CheckpointController::class,
         'method' => 'updateCheckPoint',
+    ],
+    'userinfo' => [
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'getRoadTripsOfUser',
+    ],
+    'espaceMembre' => [
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'espaceMembre',
     ]
 ];

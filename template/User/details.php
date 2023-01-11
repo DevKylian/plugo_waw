@@ -2,8 +2,7 @@
     <img src="images/liste-roadtrip-background.png" class="w-full brightness-50 h-[500px] lg:object-fill object-cover"
          alt="background-liste-roadtrips"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <h1 class="font-bold text-4xl lg:text-5xl">NOS ROAD TRIPS</h1>
-        <p class="font-light my-5">Vous retrouverez ici la liste des road trips de nos utilisateurs</p>
+        <h1 class="font-bold text-4xl lg:text-5xl">LES ROAD TRIPS DE : <span><?= $data['user']->getEmail() ?></span></h1>
     </div>
 </div>
 <div class="container my-12 mx-auto px-4 md:px-12">

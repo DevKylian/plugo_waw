@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Manager\RoadTripManager;
 use Plugo\Controller\AbstractController;
 use App\Entity\User;
 use App\Manager\UserManager;
@@ -83,5 +84,42 @@ class UserController extends AbstractController {
         $authenticator->logout();
 
         return $this->redirectToRoute('login');
+    }
+
+    public function getRoadTripsOfUser(){
+        $roadTripManager = new RoadTripManager();
+        $userManager = new  UserManager();
+        $listeRoadTrips = $roadTripManager->findBy(['user_id' => $_GET['id']]);
+        $user = $userManager->findOneBy(['id' => $_GET['id']]);
+
+        return $this->renderView('User/details.php', ['listeRoadTrip' => $listeRoadTrips, 'user' => $user]);
+    }
+
+    public function espaceMembre() {
+        $roadTripManager = new RoadTripManager();
+        $userManager = new  UserManager();
+        $listeRoadTrips = $roadTripManager->findBy(['user_id' => $_GET['id']]);
+        $user = $userManager->findOneBy(['id' => $_GET['id']]);
+        $iserror = false;
+        if(isset($_POST) && !empty($_POST)){
+            $checkCredentials = new CheckCredentials();
+            if(!$checkCredentials->checkPassword($_POST['password'], $_POST['passwordVerif'])){
+                $iserror = true;
+            }
+
+            if(!$iserror){
+                $user->setPassword($_POST['password']);
+                print_r($user);
+                $userManager->edit($user);
+
+                $this->flashMessage->generateFlashMessage('PasswordUpdateSuccess', 'success', 'Mot de passe bien modifié !');
+                return $this->redirectToRoute('logout');
+            }else{
+                //
+            }
+
+        }
+
+        return $this->renderView('User/espace_membre.php', ['listeRoadTrip' => $listeRoadTrips, 'user' => $user]);
     }
 }

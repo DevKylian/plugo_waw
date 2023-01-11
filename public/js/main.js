@@ -56,20 +56,45 @@ $(document).ready(function (){
     $('.btn-error').on('click', function(){
         event.preventDefault();
         let redirect = $(this).attr('href');
-        Swal.fire({
-            title: 'Voulez-vous vraiment le supprimer ?',
-            showDenyButton: true,
-            showCancelButton: false,
-            confirmButtonText: 'Supprimer',
-            denyButtonText: `Annuler`,
-            confirmButtonColor: '#2563eb',
-            denyButtonColor: '#4b5768',
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                window.location.href = redirect;
+        if($('#menu-details').length !== 0){
+            if($('.btn-error').length <= 2){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Impossible de supprimer ce checkpoint. \n Vous devez avoir au moins 2 checkpoint dans votre road trip',
+                })
+            }else{
+                Swal.fire({
+                    title: 'Voulez-vous vraiment supprimer ce checkpoint ?',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Supprimer',
+                    denyButtonText: `Annuler`,
+                    confirmButtonColor: '#2563eb',
+                    denyButtonColor: '#4b5768',
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        window.location.href = redirect;
+                    }
+                })
             }
-        })
+        }else{
+            Swal.fire({
+                title: 'Voulez-vous vraiment cet élément ?',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Supprimer',
+                denyButtonText: `Annuler`,
+                confirmButtonColor: '#2563eb',
+                denyButtonColor: '#4b5768',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location.href = redirect;
+                }
+            })
+        }
     });
 
 

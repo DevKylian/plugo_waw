@@ -36,9 +36,9 @@
                     <!-- Column -->
                     <div class="my-1 px-1 w-full sm:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                         <!-- Article -->
-                        <article class="overflow-hidden border shadow-lg">
+                        <article class="overflow-hidden border shadow-lg hover:scale-105 ease-in duration-200">
                             <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
-                                <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/1920/1080/?random" ?>">
+                                <img alt="Placeholder" class="block h-[230px] w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/1920/1080/?random" ?>">
                             </a>
                             <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                                 <h1 class="text-lg">
@@ -51,7 +51,7 @@
                                 </p>
                             </header>
                             <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-                                <a class="flex items-center no-underline hover:underline text-black" href="#">
+                                <a class="flex items-center no-underline hover:underline text-black" href="/index.php?page=userinfo&id=<?= $currentRoadTrip->getUser()->getId() ?>">
                                     <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                                     <p class="ml-2 text-sm">
                                         <?= $currentRoadTrip->getUser()->getEmail() ?>

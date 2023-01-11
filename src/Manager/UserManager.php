@@ -12,7 +12,17 @@ class UserManager extends AbstractManager {
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
             'created_at' => $user->getCreatedAt(),
+            'picture' => $user->getPicture(),
         ]);
+    }
+
+    public function edit(User $user){
+        return $this->update(User::class, [
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword(),
+            'created_at' => $user->getCreatedAt(),
+            'picture' => $user->getPicture(),
+        ], $user->getId());
     }
 
     public function findOneBy(array $clause){

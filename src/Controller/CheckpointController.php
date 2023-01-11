@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Checkpoint;
 use App\Manager\CheckpointManager;
+use App\Manager\RoadTripManager;
 use Plugo\Controller\AbstractController;
 use Plugo\Services\FlashMessage\FlashMessage;
 
@@ -22,17 +23,21 @@ class CheckpointController extends AbstractController {
         }
 
         $checkPointManager = new CheckpointManager();
+        $roadTripManager = new RoadTripManager();
         $checkPoint = $checkPointManager->findBy(['id' => $_GET['id']]);
         if($checkPoint[0]->getRoadtrip()->getUser()->getId() == $_SESSION['user']['id']){
-            $checkPointManager->remove($checkPoint[0]);
-            $this->flashMessage->generateFlashMessage('CheckPointDeleteSuccess', 'success', 'Checkpoint supprimé');
+            $roadTrip = $roadTripManager->findBy(['id' => $checkPoint[0]->getRoadtrip()->getId()]);
+            if(count((array)$roadTrip) <= 2){
+                $this->flashMessage->generateFlashMessage('CheckPointDeleteError', 'error', 'Impossible de supprimer ce checkpoint, vous ne pouvez pas supprimer un checkpoint si il n\'en reste seulement 2 dans votre road trip');
+            }else{
+                $checkPointManager->remove($checkPoint[0]);
+                $this->flashMessage->generateFlashMessage('CheckPointDeleteSuccess', 'success', 'Checkpoint supprimé');
+            }
         }else{
             $this->flashMessage->generateFlashMessage('CheckPointDeleteError', 'error', 'Impossible de supprimer ce checkpoint');
         }
 
         return $this->redirectToRoute('detailsRoadTrip', ['id' => $_GET['id_roadtrip']]);
-
-
     }
 
     public function updateCheckPoint() {

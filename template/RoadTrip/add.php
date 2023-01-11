@@ -17,19 +17,14 @@
             <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="text" id="typeVehicule" name="typeVehicule" placeholder="Voiture, Moto,..." required>
         </div>
         <div class="w-4/5 sm:w-3/6 lg:w-2/6 mt-10">
-            <div class="flex items-center justify-center w-full">
-                <label for="file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                        <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Appuyez pour envoyer une image</span></p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                    </div>
-                    <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white hidden" type="file" id="file" name="file" accept="image/png, image/jpeg">
-                </label>
-            </div>
+            <label class="block text-gray-700 text-sm font-bold my-2" for="file">Image d'illustration</label>
+            <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="file" id="file" name="file" accept="image/png, image/jpeg">
         </div>
         <h2 class="text-black font-bold text-4xl my-5">VOS ETAPES</h2>
-        <h3 class="text-gray-500 text-muted text-2xl my-5 w-4/5 text-center">Pour pouvoir enregistrer votre road trip, il faut que vous ayez défini au moins le point de départ et l'arrivée.</h3>
+        <div class="bg-orange-50 rounded shadow-lg border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+            <p class="font-bold">Attention</p>
+            <p>Pour enregistrer ce road trip, vous devez avoir défini au minimum un point de départ et d'arrivée.</p>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-5 mx-2 w-5/6">
             <div class="flex justify-center">
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
@@ -205,7 +200,10 @@
         $(document).on('click', '#add-etape', function () {
             let card = `<div class="flex justify-center">
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
-                    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Etape ${i} <span class="text-red-500">*</span></h5>
+                    <div class="flex justify-between">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Etape ${i} <span class="text-red-500">*</span></h5>
+                        <button type="button" class="btn btn-sm bg-red-500 delete-checkpoint text-white rounded-0 hover:bg-red-700">X</button>
+                    </div>
                     <hr>
                     <label class="block text-gray-700 text-sm font-bold my-2">
                         Intitulé <span class="text-red-500">*</span>

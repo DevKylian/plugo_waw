@@ -3,9 +3,11 @@
          alt="background-liste-roadtrips"/>
     <div class="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 class="font-bold text-4xl lg:text-5xl"><?= $data['roadTrip'][0]->getIntitule() ?></h1>
+        <h2 class="font-bold text-2xl lg:text-2xl">#<?= $data['roadTrip'][0]->getTypeVehicule() ?></h2>
+        <h2 class="font-regular text-2xl lg:text-2xl">Road trip proposé par : <?= $data['roadTrip'][0]->getUser()->getEmail() ?></h2>
     </div>
 </div>
-<div class="w-full flex flex-col lg:flex-row my-20">
+<div class="w-full flex flex-col lg:flex-row my-20" id="menu-details">
     <div class="w-full lg:w-1/2" align="center">
         <h2 class="text-4xl font-bold text-black mb-5">DÉTAILS DU VOYAGE</h2>
         <?php foreach($data['listeCheckPoint'] as $index => $currentCheckpoint){ ?>
