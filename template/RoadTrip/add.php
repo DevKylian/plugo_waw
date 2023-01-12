@@ -25,7 +25,7 @@
             <p class="font-bold">Attention</p>
             <p>Pour enregistrer ce road trip, vous devez avoir défini au minimum un point de départ et d'arrivée.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-5 mx-2 w-5/6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-5 mx-2 w-5/6">
             <div class="flex justify-center">
                 <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
                     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Départ <span class="text-red-500">*</span></h5>

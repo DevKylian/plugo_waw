@@ -12,12 +12,12 @@
             <div class="my-1 px-1 w-full sm:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                 <!-- Article -->
                 <article class="overflow-hidden border shadow-lg hover:scale-105 ease-in duration-200">
-                    <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
+                    <a href="/plugo_waw/public/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
                         <img alt="Placeholder" class="block h-[230px] w-full" src="<?= $currentRoadTrip->getIllustration() != null ? $currentRoadTrip->getIllustration() : "https://picsum.photos/1920/1080/?random" ?>">
                     </a>
                     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                         <h1 class="text-lg">
-                            <a class="no-underline hover:underline text-black" href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
+                            <a class="no-underline hover:underline text-black" href="/plugo_waw/public/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
                                 <?= $currentRoadTrip->getIntitule() ?>
                             </a>
                         </h1>
@@ -34,8 +34,8 @@
                         </a>
                         <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $currentRoadTrip->getUser()->getId()){ ?>
                             <div>
-                                <a href="/index.php?page=updateRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-sm btn-warning rounded-none"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="/index.php?page=removeRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-sm btn-error rounded-none"><i class="fa-solid fa-trash"></i></a>
+                                <a href="/plugo_waw/public/index.php?page=updateRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-sm btn-warning rounded-none"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="/plugo_waw/public/index.php?page=removeRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-sm btn-error rounded-none"><i class="fa-solid fa-trash"></i></a>
                             </div>
                         <?php } ?>
                     </footer>

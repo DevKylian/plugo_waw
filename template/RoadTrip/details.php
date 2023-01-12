@@ -23,8 +23,8 @@
                         <?php } ?>
                         <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $data['roadTrip'][0]->getUser()->getId()){ ?>
                             <div>
-                                <a href="/index.php?page=updateCheckPoint&id=<?= $currentCheckpoint->getId() ?>&id_roadtrip=<?= $data['roadTrip'][0]->getId() ?>" class="btn btn-sm btn-warning rounded-none"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="/index.php?page=removeCheckPoint&id=<?= $currentCheckpoint->getId() ?>&id_roadtrip=<?= $data['roadTrip'][0]->getId() ?>" class="btn btn-sm btn-error rounded-none"><i class="fa-solid fa-trash"></i></a>
+                                <a href="/plugo_waw/public/index.php?page=updateCheckPoint&id=<?= $currentCheckpoint->getId() ?>&id_roadtrip=<?= $data['roadTrip'][0]->getId() ?>" class="btn btn-sm btn-warning rounded-none"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="/plugo_waw/public/index.php?page=removeCheckPoint&id=<?= $currentCheckpoint->getId() ?>&id_roadtrip=<?= $data['roadTrip'][0]->getId() ?>" class="btn btn-sm btn-error rounded-none"><i class="fa-solid fa-trash"></i></a>
                             </div>
                         <?php } ?>
                     </div>

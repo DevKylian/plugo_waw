@@ -1,6 +1,12 @@
+
+Options +FollowSymlinks
 RewriteEngine on
 
-RewriteRule ^accueil$ /index.php?page=home [NC,R]
+RewriteRule ^accueil$ /plugo_waw/public/index.php?page=home [L]
 
-RewriteRule ^connexion$ /index.php?page=login [NC]
-RewriteRule ^inscription$ /index.php?page=register [NC]
+RewriteRule ^liste-road-trips$ /plugo_waw/public/index.php?page=allRoadTrip [L]
+RewriteRule ^creer-road-trip$ /plugo_waw/public/index.php?page=addRoadTrip [L]
+
+RewriteRule ^connexion$ /plugo_waw/public/index.php?page=login [L]
+RewriteRule ^inscription$ /plugo_waw/public/index.php?page=register [L]
+RewriteRule ^deconnexion$ /plugo_waw/public/index.php?page=logout [L]

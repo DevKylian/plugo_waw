@@ -1,5 +1,5 @@
 <div class="flex flex-col my-20 items-center">
-        <img src="/images/logo.png" alt="logo-waw">
+        <img src="./images/logo.png" alt="logo-waw">
         <h1 class="text-4xl font-bold text-black mb-10">Connexion</h1>
         <form action="" method="POST" class="w-4/5 sm:w-3/6 lg:w-2/6">
             <div class="md:items-center mb-10">

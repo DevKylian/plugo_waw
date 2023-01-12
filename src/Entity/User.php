@@ -8,7 +8,7 @@ class User {
     private ?string $email;
     private ?string $password;
     private $created_at;
-    private ?string $picture;
+    private ?string $picture = null;
 
     /**
      * @return string|null
